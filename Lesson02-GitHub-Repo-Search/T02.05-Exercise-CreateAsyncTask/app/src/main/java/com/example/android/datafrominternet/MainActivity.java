@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             if (s != null && !s.equals(""))
                 mSearchBoxEditText.setText(s);
-            super.onPostExecute(s);
         }
     }
 
