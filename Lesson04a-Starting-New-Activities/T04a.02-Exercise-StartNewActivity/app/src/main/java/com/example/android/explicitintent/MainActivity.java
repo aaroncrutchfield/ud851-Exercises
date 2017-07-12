@@ -70,8 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 // TODO (3) Replace the Toast with code to start ChildActivity
                 startActivity(intent);
 
+                //String message = "Button clicked!\nTODO: Start a new Activity and pass some data.";
+                //Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+
             }
         });
     }
 }
 
+)
