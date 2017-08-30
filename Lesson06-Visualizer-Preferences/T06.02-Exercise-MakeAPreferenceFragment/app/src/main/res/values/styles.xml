@@ -7,6 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- TODO (6) Add a theme for the preference -->
+        <!--without this theme, the app will crash-->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+
     </style>
 
 </resources>

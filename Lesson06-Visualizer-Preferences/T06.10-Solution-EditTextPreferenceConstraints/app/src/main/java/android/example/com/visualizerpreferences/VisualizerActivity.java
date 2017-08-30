@@ -81,11 +81,14 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.pref_show_bass_key))) {
-            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_bass_default)));
+            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key,
+                    getResources().getBoolean(R.bool.pref_show_bass_default)));
         } else if (key.equals(getString(R.string.pref_show_mid_range_key))) {
-            mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_mid_range_default)));
+            mVisualizerView.setShowMid(sharedPreferences.getBoolean(key,
+                    getResources().getBoolean(R.bool.pref_show_mid_range_default)));
         } else if (key.equals(getString(R.string.pref_show_treble_key))) {
-            mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_treble_default)));
+            mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key,
+                    getResources().getBoolean(R.bool.pref_show_treble_default)));
         } else if (key.equals(getString(R.string.pref_color_key))) {
             loadColorFromPreferences(sharedPreferences);
         } else if (key.equals(getString(R.string.pref_size_key))) {
