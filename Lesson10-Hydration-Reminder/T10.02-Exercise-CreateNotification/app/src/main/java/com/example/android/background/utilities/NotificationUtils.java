@@ -1,12 +1,14 @@
 package com.example.android.background.utilities;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
 import com.example.android.background.MainActivity;
@@ -16,7 +18,8 @@ import com.example.android.background.R;
  * Utility class for creating hydration notifications
  */
 public class NotificationUtils {
-    private static final int REQUEST_CODE = 90210;
+    private static final int PENDING_INTENT_ID = 90210;
+    private static final int NOTIFICATION_ID = 658;
 
     // DONE (7) Create a method called remindUserBecauseCharging which takes a Context.
     // This method will create a notification for charging. It might be helpful
@@ -34,22 +37,28 @@ public class NotificationUtils {
         // - sets the notification defaults to vibrate
         // - uses the content intent returned by the contentIntent helper method for the contentIntent
         // - automatically cancels the notification when the notification is clicked
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
                 .setColor(R.color.colorPrimary)
                 .setSmallIcon(R.drawable.ic_drink_notification)
                 .setLargeIcon(largeIcon(context))
-                .setContentTitle(R.string.charging_reminder_notification_title)
-                .setContentText(R.string.charging_reminder_notification_body)
+                .setContentTitle(context.getString(R.string.charging_reminder_notification_title))
+                .setContentText(context.getString(R.string.charging_reminder_notification_body))
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(
                         context.getString(R.string.charging_reminder_notification_body)))
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
 
-        // TODO (9) If the build version is greater than JELLY_BEAN, set the notification's priority
+        // DONE (9) If the build version is greater than JELLY_BEAN, set the notification's priority
         // to PRIORITY_HIGH.
-        // TODO (11) Get a NotificationManager, using context.getSystemService(Context.NOTIFICATION_SERVICE);
-        // TODO (12) Trigger the notification by calling notify on the NotificationManager.
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN)
+            notificationBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        // DONE (11) Get a NotificationManager, using context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // DONE (12) Trigger the notification by calling notify on the NotificationManager.
+        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
         // Pass in a unique ID of your choosing for the notification and notificationBuilder.build()
     }
 
@@ -68,7 +77,7 @@ public class NotificationUtils {
         //   when the notification is triggered
         // - Has the flag FLAG_UPDATE_CURRENT, so that if the intent is created again, keep the
         // intent but update the data
-        return PendingIntent.getActivity(context, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getActivity(context, PENDING_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
 
