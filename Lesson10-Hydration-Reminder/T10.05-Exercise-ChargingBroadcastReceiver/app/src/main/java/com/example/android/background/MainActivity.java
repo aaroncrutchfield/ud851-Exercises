@@ -119,12 +119,10 @@ public class MainActivity extends AppCompatActivity implements
     // when our broadcast receiver is triggered when the charging state changes.
     @TargetApi(Build.VERSION_CODES.M)
     private void showCharging(boolean isCharging){
-        ImageView powerIcon = (ImageView) findViewById(R.id.iv_power_increment);
-
         if (isCharging){
-            powerIcon.setImageIcon(Icon.createWithResource(this, R.drawable.ic_power_pink_80px));
+            mChargingImageView.setImageIcon(Icon.createWithResource(this, R.drawable.ic_power_pink_80px));
         } else {
-            powerIcon.setImageIcon(Icon.createWithResource(this, R.drawable.ic_power_grey_80px));
+            mChargingImageView.setImageIcon(Icon.createWithResource(this, R.drawable.ic_power_grey_80px));
         }
     }
 
