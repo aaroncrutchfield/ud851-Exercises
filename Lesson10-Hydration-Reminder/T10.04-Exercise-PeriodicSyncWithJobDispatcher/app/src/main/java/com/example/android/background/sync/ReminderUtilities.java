@@ -61,9 +61,9 @@ public class ReminderUtilities {
         .setTag(REMINDER_JOB_TAG)
         // - only triggers if the device is charging
         .setConstraints(Constraint.DEVICE_CHARGING)
+                .setLifetime(Lifetime.FOREVER)
+                // - has the job recur
         // - has the lifetime of the job as forever
-        .setLifetime(Lifetime.FOREVER)
-        // - has the job recur
         .setRecurring(true)
         // - occurs every 15 minutes with a window of 15 minutes. You can do this using a
         //   setTrigger, passing in a Trigger.executionWindow
