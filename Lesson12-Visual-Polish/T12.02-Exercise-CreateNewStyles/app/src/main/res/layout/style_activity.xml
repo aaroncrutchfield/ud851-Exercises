@@ -16,11 +16,7 @@
 
     <!-- TODO (5) Apply the "inboxStyle" to the inbox text view -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="8dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        style="@style/inboxStyle"
         android:drawableStart="@drawable/ic_inbox"
         android:drawableLeft="@drawable/ic_inbox"
         android:textSize="28sp"
@@ -28,8 +24,7 @@
         android:text="@string/inbox" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/folderStyle"
         android:drawableStart="@drawable/ic_star"
         android:drawableLeft="@drawable/ic_star"
         android:textSize="28sp"
@@ -37,11 +32,7 @@
         android:text="@string/starred" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="8dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        style="@style/folderStyle"
         android:drawableStart="@drawable/ic_drafts"
         android:drawableLeft="@drawable/ic_drafts"
         android:textSize="20sp"
@@ -49,10 +40,7 @@
         android:text="@string/drafts" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        style="@style/folderStyle"
         android:drawableStart="@drawable/ic_sent"
         android:drawableLeft="@drawable/ic_sent"
         android:textSize="28sp"
@@ -60,11 +48,7 @@
         android:text="@string/sent" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="12dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        style="@style/folderStyle"
         android:drawableStart="@drawable/ic_trash"
         android:drawableLeft="@drawable/ic_trash"
         android:textSize="28sp"
