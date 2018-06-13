@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>AddTaskViewModelFactory.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(98,151,85); font-style: italic; }
+.s3 { color: rgb(128,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+AddTaskViewModelFactory.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com.example.android.todolist</span><span class="s0">;</span><span class="s1"> 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">android.arch.lifecycle.ViewModel</span><span class="s0">;</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">android.arch.lifecycle.ViewModelProvider</span><span class="s0">;</span><span class="s1"> 
+<a name="l5"><span class="ln">5    </span></a> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">com.example.android.todolist.database.AppDatabase</span><span class="s0">;</span><span class="s1"> 
+<a name="l7"><span class="ln">7    </span></a> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s2">/** 
+<a name="l9"><span class="ln">9    </span></a> * Alternative to using the ViewModelProvider.of method to ensure there is only one instance of the 
+<a name="l10"><span class="ln">10   </span></a> * ViewModel being used for the application 
+<a name="l11"><span class="ln">11   </span></a> */</span><span class="s1"> 
+<a name="l12"><span class="ln">12   </span></a> 
+<a name="l13"><span class="ln">13   </span></a></span><span class="s3">// COMPLETED (1) Make this class extend ViewModel ViewModelProvider.NewInstanceFactory</span><span class="s1"> 
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">public class </span><span class="s1">AddTaskViewModelFactory </span><span class="s0">extends </span><span class="s1">ViewModelProvider.NewInstanceFactory{ 
+<a name="l15"><span class="ln">15   </span></a> 
+<a name="l16"><span class="ln">16   </span></a>    </span><span class="s3">// COMPLETED (2) Add two member variables. One for the database and one for the taskId</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a>    </span><span class="s0">private final </span><span class="s1">AppDatabase mDb</span><span class="s0">;</span><span class="s1"> 
+<a name="l18"><span class="ln">18   </span></a>    </span><span class="s0">private final int </span><span class="s1">mTaskId</span><span class="s0">;</span><span class="s1"> 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a>    </span><span class="s3">// COMPLETED (3) Initialize the member variables in the constructor with the parameters received</span><span class="s1"> 
+<a name="l21"><span class="ln">21   </span></a>    </span><span class="s0">public </span><span class="s1">AddTaskViewModelFactory(AppDatabase mDb</span><span class="s0">, int </span><span class="s1">mTaskId) { 
+<a name="l22"><span class="ln">22   </span></a>        </span><span class="s0">this</span><span class="s1">.mDb = mDb</span><span class="s0">;</span><span class="s1"> 
+<a name="l23"><span class="ln">23   </span></a>        </span><span class="s0">this</span><span class="s1">.mTaskId = mTaskId</span><span class="s0">;</span><span class="s1"> 
+<a name="l24"><span class="ln">24   </span></a>    } 
+<a name="l25"><span class="ln">25   </span></a> 
+<a name="l26"><span class="ln">26   </span></a> 
+<a name="l27"><span class="ln">27   </span></a>    </span><span class="s3">// COMPLETED (4) Uncomment the following method</span><span class="s1"> 
+<a name="l28"><span class="ln">28   </span></a>    </span><span class="s3">// Note: This can be reused with minor modifications</span><span class="s1"> 
+<a name="l29"><span class="ln">29   </span></a>    @Override 
+<a name="l30"><span class="ln">30   </span></a>    </span><span class="s0">public </span><span class="s1">&lt;T </span><span class="s0">extends </span><span class="s1">ViewModel&gt; T create(Class&lt;T&gt; modelClass) { 
+<a name="l31"><span class="ln">31   </span></a>        </span><span class="s3">//noinspection unchecked</span><span class="s1"> 
+<a name="l32"><span class="ln">32   </span></a>        </span><span class="s0">return </span><span class="s1">(T) </span><span class="s0">new </span><span class="s1">AddTaskViewModel(mDb</span><span class="s0">, </span><span class="s1">mTaskId)</span><span class="s0">;</span><span class="s1"> 
+<a name="l33"><span class="ln">33   </span></a>    } 
+<a name="l34"><span class="ln">34   </span></a>} 
+<a name="l35"><span class="ln">35   </span></a></span></pre>
+</body>
+</html>
